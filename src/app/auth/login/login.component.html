@@ -1,0 +1,26 @@
+<h1>Login</h1>
+<form [formGroup]="loginForm" (ngSubmit)="onFormSubmit(loginForm.value)">
+    <mat-form-field class="example-full-width">
+        <input matInput placeholder="Username" formControlName="username"
+                [errorStateMatcher]="matcher">
+        <mat-error>
+        <span *ngIf="!loginForm.get('username').valid && loginForm.get('username').touched">Please enter Username</span>
+        </mat-error>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+        <textarea matInput placeholder="Password" formControlName="password"
+                [errorStateMatcher]="matcher"></textarea>
+        <mat-error>
+        <span *ngIf="!loginForm.get('password').valid && loginForm.get('password').touched">Please enter Password</span>
+        </mat-error>
+    </mat-form-field>
+    <div class="button-row">
+        <button type="submit" [disabled]="!loginForm.valid" mat-raised-button color="primary"><mat-icon>Login</mat-icon></button>
+        <a [routerLink]="['/register']" class="btn btn-link">Register</a>
+    </div>
+
+    <button (click)="socialSignIn('facebook')">Sign in with Facebook</button>
+    <button (click)="socialSignIn('google')">Sign in with Google</button>              
+    
+</form>
+    

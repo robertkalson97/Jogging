@@ -1,0 +1,50 @@
+<div class="button-row">
+  <a mat-raised-button color="primary" (click)="joggingDetails()"><mat-icon>show</mat-icon></a>
+</div>
+<form [formGroup]="joggingForm" (ngSubmit)="onFormSubmit(joggingForm.value)">
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Distance" formControlName="distance"
+           [errorStateMatcher]="matcher">
+    <mat-error>
+      <span *ngIf="!joggingForm.get('distance').valid && joggingForm.get('distance').touched">Please enter Distance</span>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Startdate" formControlName="title"
+           [errorStateMatcher]="matcher">
+    <mat-error>
+      <span *ngIf="!joggingForm.get('title').valid && joggingForm.get('title').touched">Please enter Jogging Startdate</span>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Enddate" formControlName="enddate"
+           [errorStateMatcher]="matcher">
+    <mat-error>
+      <span *ngIf="!joggingForm.get('enddate').valid && joggingForm.get('enddate').touched">Please enter Jogging Enddate</span>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <textarea matInput placeholder="Speed" formControlName="speed"
+           [errorStateMatcher]="matcher"></textarea>
+    <mat-error>
+      <span *ngIf="!joggingForm.get('speed').valid && joggingForm.get('speed').touched">Please enter Jogging Speed</span>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Comment" formControlName="comment"
+           [errorStateMatcher]="matcher">
+    <mat-error>
+      <span *ngIf="!joggingForm.get('comment').valid && joggingForm.get('comment').touched">Please enter Comment</span>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Published Year" formControlName="published_year"
+           [errorStateMatcher]="matcher">
+    <mat-error>
+      <span *ngIf="!joggingForm.get('published_year').valid && joggingForm.get('published_year').touched">Please enter Published Year</span>
+    </mat-error>
+  </mat-form-field>
+  <div class="button-row">
+    <button type="submit" [disabled]="!joggingForm.valid" mat-raised-button color="primary"><mat-icon>save</mat-icon></button>
+  </div>
+</form>

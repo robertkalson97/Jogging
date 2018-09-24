@@ -1,0 +1,27 @@
+<div class="button-row">
+  <a mat-raised-button color="primary" [routerLink]="['/joggings']"><mat-icon>list</mat-icon></a>
+</div>
+<mat-card class="example-card">
+  <mat-card-header>
+    <mat-card-title><h2>{{jogging.title}}</h2></mat-card-title>
+    <mat-card-subtitle>{{jogging.speed}}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <dl>
+      <dt>Distance:</dt>
+      <dd>{{jogging.distance}}</dd>
+      <dt>Enddate:</dt>
+      <dd>{{jogging.enddate}}</dd>
+      <dt>Comment:</dt>
+      <dd>{{jogging.comment}}</dd>
+      <dt>Publish Year:</dt>
+      <dd>{{jogging.published_year}}</dd>
+      <dt>Update Date:</dt>
+      <dd>{{jogging.updated_date | date}}</dd>
+    </dl>
+  </mat-card-content>
+  <mat-card-actions>
+    <a mat-raised-button color="primary" [routerLink]="['/jogging-edit', jogging._id]"><mat-icon>edit</mat-icon></a>
+    <a mat-raised-button color="warn" (click)="deleteJogging(jogging._id)"><mat-icon>delete</mat-icon></a>
+  </mat-card-actions>
+</mat-card>
